@@ -19,7 +19,7 @@ def get_value(key):
     return f'key={key}, value={DICTIONARY[key]}'
 
 
-@app.route('/<key>/<value>', methods=['POST'])
+@app.route('/<key>/<value>', methods=['GET', 'POST'])
 def set_value(key, value):
     print(f'set_value({key},{value})')
     DICTIONARY[key] = value

@@ -26,3 +26,15 @@
      python /app/mem.py
      watch -n1 "memcached-tool mem:11211 dump "
      history
+
+# put
+```
+http://192.168.56.103/a/1
+http://192.168.56.103/b/2
+```
+
+# get
+```
+http://192.168.56.103/a       # key=a, value=1
+http://192.168.56.103/b       # key=b, value=2
+```

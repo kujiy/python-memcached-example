@@ -15,8 +15,9 @@ services:
     build:
       context: .
     ports:
-      - 88:80
-    command: tail -f /dev/null
+      - 80:5000
+    command: bash /app/up.sh     
+    #command: tail -f /dev/null
     volumes:
       - ./app:/app
       

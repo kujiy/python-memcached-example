@@ -1,15 +1,16 @@
 from flask import Flask
+import datetime
+import time
+
 
 DICTIONARY = {}  # DBでもなんでも良いです
 
 app = Flask(__name__)
 
 @app.route('/date')
-def get_value():
-    import datetime
-    dt=datetime.datetime.strptime(data[4]+data[5],'%Y%m%d%H%M%S')
-    print(dt)
-    return dt
+def get_date():
+    t =  time.strftime('%Y%m%d%H%I%S') 
+    return t 
 
 
 @app.route('/<key>')
@@ -23,3 +24,11 @@ def set_value(key, value):
     print(f'set_value({key},{value})')
     DICTIONARY[key] = value
     return 'OK'
+
+@app.route('/')
+def get_root():
+    return "ok"
+
+if __name__ == '__main__':
+    # def port 5000
+    app.run(debug = True)

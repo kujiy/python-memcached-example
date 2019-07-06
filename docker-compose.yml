@@ -1,0 +1,22 @@
+version: "3"
+#version: '3.4'
+#1version: '2'
+
+services:
+  memcached:
+    image: 'memcached'
+    container_name: mem
+    ports:
+      - '11211:11211'
+
+  pymem:
+    image: python:3
+    container_name: pymem 
+    build:
+      context: .
+    ports:
+      - 88:80
+    command: tail -f /dev/null
+    volumes:
+      - ./app:/app
+      
